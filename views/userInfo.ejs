@@ -1,0 +1,30 @@
+<div class="title">用户信息
+    <button class="saveService" ng-click="toSaveService()">编辑</button>
+</div>
+<div class="line"></div>
+
+<div class="publishArea">
+    <div class="left_part_userinfo" style="margin-left: 32px;width:600px;display: inline-block;float: left;">
+        <label class="labelNormal" style="font-size: 16px;">用户名：</label>
+        <label class="labelNormal" style="margin-left: 0px;font-size: 16px" ng-bind="username"></label><br>
+        <label class="labelNormal" style="font-size: 16px;">密码：</label>
+        <button style="width:120px;background-color:rgb(170, 168, 147);outline: none;border: 0px;color: white;">修改密码</button><br>
+        <label class="labelNormal" style="font-size: 16px;">详细地址：</label>
+        <label class="labelNormal" style="margin-left: 0px;font-size: 16px" ng-bind="addr"></label><br>
+        <label class="labelNormal" style="font-size: 16px;">状态：</label>
+        <label class="labelNormal" id="status" style="margin-left: 0px;font-size: 16px" ng-bind="status"></label><br>
+        <label class="labelNormal" style="font-size: 16px;vertical-align: top" >备注：</label>
+        <textarea readonly style="resize: none;outline: none;height: 200px;margin-top: 32px;width:350px;border-radius: 12px;padding-left: 12px;padding-right: 12px" ng-bind="info"></textarea>
+    </div>
+    <div class="right_part_userinfo" style="margin-left: 32px;width:400px;display: inline-block;float: left;">
+        <label class="labelNormal" style="font-size: 16px;">联系方式：</label>
+        <label class="labelNormal" style="margin-left: 0px;font-size: 16px" ng-bind="tel"></label><br>
+        <label class="labelNormal" style="font-size: 16px;">邮箱：</label>
+        <label class="labelNormal" style="margin-left: 0px;font-size: 16px" ng-bind="mail"></label><br>
+        <div style="width: 400px;height: 400px;margin-top: 100px" id="publish_input"></div>
+    </div>
+    <div class="icon_part_userinfo" style="margin-left: 64px;width:400px;display: inline-block;float: left;">
+        <img src="/images/icon/icon_default.png" style="width:90px;height: 90px;border-radius: 45px;margin-top: 32px;margin-left: 16px"><br>
+        <button style="width: 80px;height: 32px;background-color: #e1e1e1;border: 2px solid #e1e1e1;border-radius: 12px;color: #656256;margin-left: 21px;margin-top: 24px;outline: none;">更换头像</button>
+    </div>
+</div>

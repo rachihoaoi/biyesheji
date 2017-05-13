@@ -1,0 +1,95 @@
+<div class="title">服务发布
+    <button class="saveService" ng-click="toSaveService()">保存</button>
+</div>
+<div class="line"></div>
+
+<div class="publishArea">
+    <div class="left_patten" style="width:1000px;display: inline-block;float: left">
+        <label class="labelNormal">服务名:</label><input class="inputBox" placeholder="请输入服务名称" ng-model="ServiceName">
+        <label class="labelNormal">服务地址:</label><input class="inputBox ser_addr" placeholder="请输入接口地址，如：http://huidao.com/service/list" ng-model="ServiceAddr"><br>
+        <label class="labelNormal">开发商名称:</label><input class="inputBox" placeholder="请输入开发商名称" ng-model="ServiceCreatorName">
+        <label class="labelNormal" style="min-width:117px">请求方式:</label>
+        <select class="req_list" style="padding-left: 12px" ng-model="ServicePostMethod">
+            <option value="POST">POST</option>
+            <option value="GET">GET</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+        <label class="labelNormal" style="max-width: 50px;width: 50px;min-width: 50px">版本:</label>V <input class="inputBox" placeholder="版本号" ng-model="serviceVision" style="width: 80px"><br>
+        <!--<label class="labelNormal">发布服务地址:</label><label>http://localhost:3008/HospitalServicePlatform/api/service/serviceApiAddress?uid={{uid}}&apiAddr=</label>-->
+        <!--<input class="inputBox" placeholder="请输入服务地址" style="border: 0px;border-bottom: 1px solid silver;border-radius: 0px" ng-model="servicePublishAddr" maxlength="12"><br>-->
+        <label class="labelNormal">参数设置:</label>
+        <div style="margin-left: 140px;" ng-init="index=1">
+            <label class="params_set" id="params_set1" ng-click="index=1;setParamType('Header')" style="background-color: #aaa893;left: 30px;color: whitesmoke;z-index: 100">Header参数</label>
+            <label class="params_set" id="params_set2" ng-click="index=2;setParamType('Params')" style="background-color: #93917c;left: -10px;color: whitesmoke;z-index: 99">Params参数</label>
+            <label class="params_set" id="params_set3" ng-click="index=3;setParamType('Path')" style="background-color: #7c7a65;left: -50px;color: whitesmoke;z-index: 98">Path参数</label>
+            <label class="params_set" id="params_set4" ng-click="index=4;setParamType('form-data')" style="background-color: #656256;left: -90px;color: whitesmoke;z-index: 97">Body参数</label>
+            <div class="params_bk" id="params_bk" style="background-color: #aaa893" >
+                <div ng-repeat="Param in headerParams" style="margin-left: 50px" ng-show="index==1">
+                    <input class="inputBox_p"  placeholder="Header参数名"  ng-focus="addParam($index)" ng-change="addValueHeader($index,1)" ng-model="headerParams.name[$index]">
+                    <input class="inputBox_p" placeholder="Header参数值"  ng-focus="addParam($index)" ng-change="addValueHeader($index,2)" ng-model="headerParams.value[$index]">
+                    <select class="req_list" style="width: 100px;height: 28px;margin-left: 5px" ng-focus="addParam($index)" ng-change="addValueHeader($index,3)" ng-model="headerParams.necessary[$index]">
+                        <option value="">--是否必须--</option>
+                        <option value="Param_Required">是</option>
+                        <option value="Param_NotRequired">否</option>
+                    </select>
+                    <input class="inputBox_p" style="width: 120px"  placeholder="说明"  ng-focus="addParam($index)" ng-change="addValueHeader($index,4)" ng-model="headerParams.illustrate[$index]">
+                </div>
+                <div ng-repeat="Param in queryParams" style="margin-left: 50px" ng-show="index==2">
+                    <input class="inputBox_p"  placeholder="Param参数名"  ng-focus="addParam_params($index)"  ng-change="addValueParams($index,1)" ng-model="queryParams.name[$index]">
+                    <input class="inputBox_p" placeholder="Param参数值" ng-focus="addParam_params($index)"  ng-change="addValueParams($index,2)" ng-model="queryParams.value[$index]">
+                    <select class="req_list" style="width: 100px;height: 28px;margin-left: 5px" ng-focus="addParam_params($index)"  ng-change="addValueParams($index,3)" ng-model="queryParams.necessary[$index]">
+                        <option value="">--是否必须--</option>
+                        <option value="Param_Required">是</option>
+                        <option value="Param_NotRequired">否</option>
+                    </select>
+                    <input class="inputBox_p" style="width: 120px" placeholder="说明" ng-focus="addParam_params($index)"  ng-change="addValueParams($index,4)" ng-model="queryParams.illustrate[$index]">
+                </div>
+                <div ng-repeat="Param in pathParams"  ng-show="index==3" style="margin-left: 50px;">
+                    <lable class="lableStar">*</lable><input class="inputBox" placeholder="Path参数名" ng-model="pathParams.name[$index]" ng-change="addValuePath($index,1)" style="margin-left: 5px;margin-top: 24px;width:260px"><br>
+                    <lable class="lableStar">*</lable>
+                    <select class="req_list" style="margin-top: 24px;width:80px" ng-model="pathParams.type[$index]"  ng-change="addValuePath($index,2)">
+                        <option value="">--类型--</option>
+                        <option value="params">参数</option>
+                        <option value="Url">路径</option>
+                    </select>
+                    <lable class="lableStar">*</lable><input class="inputBox" placeholder="示例值" ng-model="pathParams.value[$index]" ng-change="addValuePath($index,3)" style="width:260px"> <br>
+                    <textarea class="inputBox path_info" maxlength="500" placeholder="请输入该Path参数的描述，不超过500字" ng-model="pathParams.Describe[$index]" ng-change="addValuePath($index,4)"></textarea><br>
+                </div>
+                <div ng-show="index==4" ng-init="type=1">
+                    <input name="form-data" type="radio"  ng-click="type=1;setBodyType('form-data')" style="margin-top: 24px;margin-left: 48px"><lable style="margin-left: 12px;color: whitesmoke">form-data</lable>
+                    <input name="form-data" type="radio"  ng-click="type=2;cleanup();setBodyType('raw')" style="margin-top: 24px;margin-left: 12px"><lable style="raw: 12px;color: whitesmoke">raw</lable>
+                    <select class="req_list" ng-show="type==2" ng-model="bodyParamsRaw.type" ng-change="addValueBodyRaw(1)" style="padding-left: 12px">
+                        <option value="">Text</option>
+                        <option value="Text(text/plain)">Text(text/plain)</option>
+                        <option value="JSON(application/json)">JSON(application/json)</option>
+                        <option value="Javascript(application/javascript)">Javascript(application/javascript)</option>
+                        <option value="XML(aplication/xml)">XML(aplication/xml)</option>
+                        <option value="XML(text/xml)">XML(text/xml)</option>
+                        <option value="HTML(text/html)">HTML(text/html)</option>
+                    </select><br>
+                    <div ng-repeat="body in bodyParamsFromData">
+                        <input class="inputBox" placeholder="Body参数名" ng-show="type==1" ng-focus="addParam_body($index)" ng-change="addValueBodyFromData($index,1)" ng-model="bodyParamsFromData.name[$index]" style="margin-top: 12px;margin-left: 50px">
+                        <select class="req_list" ng-show="type==1" style="width: 80px" ng-change="addValueBodyFromData($index,2)" ng-model="bodyParamsFromData.type[$index]">
+                            <option value="">--类型--</option>
+                            <option value="Text">Text</option>
+                            <option value="File">File</option>
+                        </select>
+                        <input class="inputBox" placeholder="示例值" ng-show="type==1" ng-focus="addParam_body($index)" ng-change="addValueBodyFromData($index,3)" ng-model="bodyParamsFromData.value[$index]">
+                        <select class="req_list" ng-show="type==1" style="width:100px " ng-change="addValueBodyFromData($index,4)" ng-model="bodyParamsFromData.necessary[$index]">
+                            <option value="">--是否必须--</option>
+                            <option value="Required" >是</option>
+                            <option value="NotRequired">否</option>
+                        </select><br>
+                    </div>
+                    <input class="inputBox" placeholder="描述" ng-show="type==2" ng-model="bodyParamsRaw.Describe" ng-change="addValueBodyRaw(2)" style="margin-left: 50px;margin-top: 24px;width: 600px;"><br>
+                    <textarea class="return_sample" maxlength="150" ng-model="bodyParamsRaw.Content" ng-change="addValueBodyRaw(3)" placeholder="" ng-show="type==2"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_patten" style="width:400px;float: left;position: relative;">
+        <label class="labelNormal">服务描述:</label><textarea class="inputBox serv_info" maxlength="500" placeholder="请输入该服务的简介，不超过500字" ng-model="ServiceDescribe"></textarea><br>
+        <label class="labelNormal" style="margin-top: 70px">接口返回格式:</label><textarea class="inputBox return_format" maxlength="500" placeholder="请输入接口返回示例" ng-model="ServiceReturnFormat"></textarea>
+    </div>
+</div>

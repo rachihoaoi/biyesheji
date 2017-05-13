@@ -1,0 +1,39 @@
+<div class="title">应用列表
+    <div  class="searchBar">
+        <input class="search" placeholder=""  ng-keyup="search()" ng-model="searchContent">
+    </div>
+
+</div>
+<div class="line"></div>
+
+<div class="publishArea">
+    <div style="height:700px;width:1150px;display: inline-block;float: left;">
+        <div id="about1" class="nano about1" style="width: 1142px;background-color: white;margin-left: 2px;height: 700px">
+            <div class="nano-content" style="padding-top: 0px">
+                <p style="margin: 0px">
+                <div ng-repeat="app in appList" style="display: inline-block;width: 120px;height: 160px;margin-left: 64px;margin-top: 32px" ng-click="toAppInfo(app.id,app.appDeveloper)">
+                    <img class="" style="border-radius: 24px;border: 0;width: 120px;height: 120px;cursor: pointer;box-shadow: 2px 2px 2px;   " ng-src={{app.appIcon}}>
+                    <label style="text-align: center;min-width: 100%;max-width: 100%;margin-top: 12px;color: #434239" ng-bind="app.appName"></label>
+                </div>
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="osusumeBar" style="width: 300px;">
+        <lable class="osusumetitle">应用推荐</lable>
+        <div class="osusumeContent" style="width: 280px;">
+            <div id="about1" class="nano about1" style="width: 280px;background-color: white;margin-left: 2px;height: 550px">
+                <div class="nano-content" style="padding-top: 0px">
+                    <p style="margin: 0px">
+                        <div class="osusumeItem" ng-repeat="app in osusumeItem" style="display: inline-block;width: 120px;height: 160px;margin-left: 64px;border: 0px" ng-click="toAppInfo(app.id,app.appDeveloper)">
+                            <img class="" style="border-radius: 24px;border: 0;width: 120px;height: 120px;cursor: pointer;box-shadow: 2px 2px 2px;   " ng-src={{app.appIcon}}>
+                            <label style="text-align: center;min-width: 100%;max-width: 100%;margin-top: 12px;color: #434239" ng-bind="app.appName"></label>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

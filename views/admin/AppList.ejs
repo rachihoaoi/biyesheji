@@ -1,0 +1,24 @@
+<div class="title">应用列表
+    <div  class="searchBar">
+        <input class="search" placeholder=""  ng-keyup="search()" ng-model="searchContent">
+    </div>
+
+</div>
+<div class="line"></div>
+<div id="about1" class="nano about1" style="width: 992px;background-color: white;margin-left: 120px;height: 700px;margin-top: 32px">
+    <div class="nano-content" style="padding-top: 0px">
+        <p style="margin: 0px">
+        <div ng-repeat="app in appList"  style="border-bottom: 2px solid silver;width: 98%;height: 150px;cursor: pointer;color: #434239" ng-click="toInfo(app.id)">
+            <img ngf-src="app.appIcon" style="width:100px;height: 100px;border-radius: 24px;margin-top: 25px;margin-left: 25px;display: inline-block;float: left">
+            <div style="height: 100px;margin-top: 25px;display: inline-block;float: left;width: 620px;margin-left: 32px">
+                <label style="margin-left: 12px;margin-top: 12px;font-size: 16px">应用名称：</label><label style="font-size: 16px" ng-bind="app.appName">Nier:Automata</label>
+                <label style="margin-left: 36px;margin-top: 12px;font-size: 16px">评分：</label><label style="font-size: 16px;color: yellow">★★★★☆</label>
+
+                <br>
+                <label style="margin-left: 12px;margin-top: 6px;font-size: 12px">开发商：</label><label style="font-size: 12px" ng-bind="app.appDeveloper">SE WORKSHOP</label><br>
+                <label style="margin-left: 12px;margin-top: 6px;font-size: 12px">简介：</label><label style="font-size: 12px;" ng-bind="app.appInfo">surprise motherfucker</label>
+            </div>
+        </div>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "mysqlConfig": {
+    "ip": "localhost",
+    "port": "3306",
+    "database": "hospitalserviceplatform",
+    "user": "root",
+    "password": "111111"
+  }
+}

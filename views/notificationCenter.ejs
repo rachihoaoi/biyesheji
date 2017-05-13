@@ -1,0 +1,62 @@
+<div class="title">Notification Center
+    <button class="saveService" ng-click="refresh()">刷新</button>
+    <div  class="searchBar">
+        <input class="search" placeholder=""  ng-keyup="search()" ng-model="searchContent">
+    </div>
+</div>
+<div class="line"></div>
+
+<div class="notificationArea" >
+    <div style="float: left;display: inline-block">
+        <div id="mailTopBar1" class="mailTopBar mailTopBar1"><lable class="subtitle">收件箱(未读)：</lable></div>
+        <div id="about1" class="nano about1" >
+            <div class="nano-content">
+                <p>
+                    <figure ng-repeat="mail in mailListNotRead" class="imghvr-push-left" style="width:330px;height: 100px;margin-top: 5px;background-color: rgba(170, 168, 147,0.6);cursor: pointer" ng-click="showInfo(mail.id)" >
+                        <div >
+                            <img src="/images/icon_default.png" style="width:50px;height: 50px;float: left;margin-left: 25px;margin-top: 25px;border-radius: 25px">
+                            <label class="mailTitle">邮件标题:</label><label class="mailTitle" ng-bind="mail.title"></label><br>
+                            <label class="mailTitle">寄件人:</label><label class="mailTitle" ng-bind="mail.fromName"></label>
+                        </div>
+                        <figcaption>
+                            <lable class="mailTitle" ng-bind="mail.message">shoujianren</lable><br>
+                            <lable class="mailTitle" ng-bind="mail.time">shijian</lable>
+                        </figcaption>
+                    </figure>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="float: left;display: inline-block;margin-left: 50px">
+        <div id="mailTopBar2" class="mailTopBar mailTopBar2"><lable class="subtitle">收件箱(所有)：</lable></div>
+        <div id="about2" class="nano about2" >
+            <div class="nano-content">
+                <p>
+                    <figure ng-click="showInfo(mail.id)" ng-repeat="mail in mailList" class="imghvr-push-left" style="width:330px;height: 100px;margin-top: 5px;background-color: rgba(170, 168, 147,0.6);cursor: pointer">
+                        <div >
+                            <img src="/images/icon_default.png" style="width:50px;height: 50px;float: left;margin-left: 25px;margin-top: 25px;border-radius: 25px">
+                            <label class="mailTitle">邮件标题:</label><label class="mailTitle" ng-bind="mail.title"></label><br>
+                            <label class="mailTitle">寄件人:</label><label class="mailTitle" ng-bind="mail.fromName"></label>
+                        </div>
+                        <figcaption>
+                            <lable class="mailTitle" ng-bind="mail.message">shoujianren</lable><br>
+                            <lable class="mailTitle" ng-bind="mail.time">shijian</lable>
+                        </figcaption>
+                    </figure>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="noti_line" style="float: left;display: inline-block;margin-left: 30px;height: 700px;width: 2px;border-left: 2px solid #656256"></div>
+    <div class="mailContent" id="mailContent" style="opacity: 0; ">
+        <div class="MailTop">
+            <label class="MailSender">发件人：</label><label class="MailSender" ng-bind="mailSender">Mail Sender</label><br>
+            <label  class="MailTime">发送时间：</label><label class="MailTime" ng-bind="mailSendTime">Sent Time</label>
+        </div>
+        <div style="border-bottom: 2px solid #656256;margin-left: 12px;width: 90%;">
+            <label  class="MailContentTitle">标题：</label><label class="MailContentTitle" ng-bind="mailTitle">Mail title</label><br>
+            <label  class="MailContentTitle" >收件人：</label><label class="MailContentTitle" ng-bind="mailReceiver"></label>
+        </div>
+        <textarea class="mail_content" ng-bind="mailContent" readonly style="resize: none"> aaaaaaaaaaaaaa</textarea>
+    </div>
+</div>

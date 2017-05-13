@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <title>HospitalServicePlatform</title>
+    <link rel='stylesheet' href='/lib/css/index.css'/>
+    <link rel='stylesheet' href='/lib/css/bootstrap/bootstrap.min.css'/>
+</head>
+
+
+
+
+<body style="margin:0px" ng-app="indexApp" ng-controller="indexCtrl">
+
+    <div id="topHover" class="topHover">
+        <div id="login_btn" class="login_btn" >登陆
+            <div id="login_textbox" style="display: none">
+                <input ng-model="username" style="width: 200px;height: 30px;margin-top: 20px;padding-left: 20px;border: 1px solid white;border-radius: 5px;outline: none;" placeholder="邮箱/电话/用户名">
+                <input ng-model="password" type="password" style="width: 200px;height: 30px;margin-top: 20px;padding-left: 20px;border: 1px solid white;border-radius: 5px;outline: none;" placeholder="密码">
+                <button class="login" ng-click="login()">登陆</button>
+                <button class="register" ng-click="register()">注册</button>
+            </div>
+        </div>
+    </div>
+    <div id="myCarousel" class="carousel slide vertical">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators" >
+            <li data-target="#myCarousel"  data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner" id="carousel-inner" >
+            <div class="item active">
+                <img style="width: 100%" src="/images/index_slide/03.png" alt="Second slide">
+                <div id="slide_content" style="width: 100%;background-color: rgb(170, 168, 147);" alt="First slide">
+                    <div class="P5content" style="left: 700px">基于Nodejs的医疗服务分享平台</div>
+                    <div class="P5content" style="font-size: 24px;top:420px;left: 700px;">集成医疗服务与软件，摆脱医疗服务信息化孤岛</div>
+                    <img src="/images/line.png" style="width:100%;height: 200px;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 0">
+                </div>
+            </div>
+            <div class="item">
+                <img style="width: 100%" src="/images/index_slide/03.png" alt="Second slide">
+                <div id="slide_content" style="width: 100%;background-color: rgb(170, 168, 148);"  >
+                    <div class="P5content">直观的数据展示，更丰富的可视化效果</div>
+                    <div class="P5content" style="font-size: 24px;top:420px;left: 520px;">多种数据可视化图表，更好的展示不同数据的关系，让你的数据呈现方式更个性和完美</div>
+                    <img src="/images/charts/1.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 100px;">
+                    <img src="/images/charts/2.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 400px;">
+                    <img src="/images/charts/3.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 700px;">
+                    <img src="/images/charts/4.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 1000px;">
+                    <img src="/images/charts/5.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 1300px;">
+                    <img src="/images/charts/6.png" style="width:200px;height: 200px;background-color: whitesmoke;opacity: 0.6;border-radius: 250px;position: absolute;top:650px;left: 1600px;">
+                </div>
+            </div>
+        </div>
+            <!-- 轮播（Carousel）导航 -->
+        <!--<a class="carousel-control left" href="#myCarousel"-->
+           <!--data-slide="prev"><div id="switch_l" ><</div>-->
+        <!--</a>-->
+        <!--<a class="carousel-control right" href="#myCarousel"-->
+           <!--data-slide="next"><div id="switch_r" >></div>-->
+        <!--</a>-->
+    </div>
+
+
+<script src="/lib/chart.js"></script>
+<script src="/lib/echarts.min.js"></script>
+<script src="/lib/jquery-2.1.1.min.js"></script>
+<script src="/lib/bootstrap.min.js"></script>
+<script src="/lib/angular/angular.min.js"></script>
+<script src="/lib/countup-js/js/countup.js"></script>
+<script src="/lib/unslider.min.js"></script>
+<script src="/javascripts/public/public.js"></script>
+<script src="/javascripts/controller/index.controller.js"></script>
+<script src="/javascripts/factory/index/index.factory.js"></script>
+<script src="/javascripts/factory/index/statistic.factory.js"></script>
+</body>

@@ -1,0 +1,86 @@
+<div class="title">通知管理
+    <button class="saveService" ng-click="delete()">删除</button>
+    <div  class="searchBar">
+        <input class="search" placeholder=""  ng-keyup="search()" ng-model="searchContent">
+    </div>
+
+</div>
+<div class="line"></div>
+
+<div class="publishArea">
+    <div style="height:700px;width:1550px;display: inline-block;float: left;">
+        <div class="topListHover">
+            <div class="topListHoverItem">通知ID</div>
+            <div class="topListHoverItem">发送自</div>
+            <div class="topListHoverItem">发送至</div>
+            <div class="topListHoverItem">时间</div>
+            <div class="topListHoverItem">标题</div>
+            <div class="topListHoverItem" style="width: 320px">通知内容</div>
+            <div class="topListHoverItem">点击进入详情页</div>
+            <div class="topListHoverItem">是否删除</div>
+        </div>
+        <div id="about1" class="nano about1" style="width: 1550px;background-color: white;margin-left: 2px;height: 700px">
+            <div class="nano-content" style="padding-top: 0px">
+                <p style="margin: 0px">
+                <div ng-repeat="service in mailList" class="listLine" style="width: 1440px">
+                    <div class="listContent" ng-bind="service.id"></div>
+                    <div class="listContent" ng-bind="service.fromName"></div>
+                    <div class="listContent" ng-bind="service.toName"></div>
+                    <div class="listContent" ng-bind="service.time"></div>
+                    <div class="listContent" ng-bind="service.title"></div>
+                    <div class="listContent" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width:320px;" ng-bind="service.message"></div>
+                    <div class="listContent" ng-click="toInfo(service.id)"  style="cursor: pointer">详情</div>
+
+                    <div class="listContent" ><input type="checkbox" ng-click="selected(service.id);addDeveId(service.developerID)" style="margin-top: 12px;cursor: pointer;outline:none;"></div>
+                </div>
+                </p>
+            </div>
+        </div>
+        <!--<table class="insertTable">-->
+        <!--<tbody>-->
+        <!--<tr>-->
+        <!--<th>服务名称</th>-->
+        <!--<th>服务提供商</th>-->
+        <!--<th>请求方式</th>-->
+        <!--<th>参数类型</th>-->
+        <!--<th>点击进入详情页</th>-->
+        <!--<th style="max-width: 50px">是否接入</th>-->
+        <!--</tr>-->
+        <!--<tr  ng-repeat="service in serviceList">-->
+        <!--<th ng-bind="service.name"></th>-->
+        <!--<th ng-bind="service.developer"></th>-->
+        <!--<th ng-bind="service.requestMethod"></th>-->
+        <!--<th ng-bind="service.paramType"></th>-->
+        <!--<th><a href="#/ServiceInsert" ng-click="toInfo(service.id)">详情</a></th>-->
+        <!--<th><input type="checkbox" ng-click="selected(service.id)"></th>-->
+        <!--</tr>-->
+
+
+        <!--</tbody>-->
+        <!--</table>-->
+    </div>
+    <!--<div class="osusumeBar">-->
+    <!--<lable class="osusumetitle">服务推荐</lable>-->
+    <!--<div class="osusumeContent">-->
+    <!--<div id="about1" class="nano about1" style="width: 400px;background-color: white;margin-left: 2px;height: 600px">-->
+    <!--<div class="nano-content" style="padding-top: 0px">-->
+    <!--<p style="margin: 0px">-->
+    <!--<div class="osusumeItem" ng-repeat="item in osusumeItem" ng-click="toInfo1()">-->
+    <!--<div style="height: 32px;width: 100%;">-->
+    <!--<label style="line-height: 32px;overflow: hidden;cursor: pointer">服务名称：</label><label style="line-height: 32px;cursor: pointer;max-width: 150px;overflow: hidden;text-overflow: ellipsis" ng-bind="item.name">aaa</label>-->
+    <!--</div>-->
+    <!--<div style="height: 32px;width: 100%">-->
+    <!--<label style="line-height: 32px;overflow: hidden;cursor: pointer;">服务提供商：</label><label style="line-height: 32px;cursor: pointer;max-width: 100px;overflow: hidden;text-overflow: ellipsis" ng-bind="item.developer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</label>-->
+    <!--<label style="line-height: 32px;overflow: hidden;cursor: pointer;float: right;" ng-bind="item.requestMethod">POST</label><label style="line-height: 32px;cursor: pointer;max-width: 150px;overflow: hidden;text-overflow: ellipsis;float: right;margin-right: 12px">请求方式：</label>-->
+    <!--</div>-->
+    <!--<div style="height: 32px;width: 100%">-->
+    <!--<label style="line-height: 32px;overflow: hidden;cursor: pointer;">参数类型：</label><label style="line-height: 32px;cursor: pointer;max-width: 150px;overflow: hidden;text-overflow: ellipsis" ng-bind="item.bodyParamType">HEADER</label>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>

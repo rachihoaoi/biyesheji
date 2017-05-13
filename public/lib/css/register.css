@@ -1,0 +1,50 @@
+.register_bk{
+    width:100%;
+    background-image:url(/images/index_slide/02.jpg);
+    background-repeat: no-repeat;
+}
+
+.info_table{
+    width:450px;
+    height:600px;
+    background-color: gainsboro;
+    left:1200px;
+    top:100px;
+    position: absolute;
+    display: inline-block;
+    opacity: 0.78;
+    border-radius:  95px  45px 95px 0;
+    box-shadow: 0 0 10px gainsboro;
+}
+
+.input_box{
+    width: 300px;
+    height: 45px;
+    margin-top: 20px;
+    padding-left: 20px;
+    border-radius: 5px 15px 15px 5px;
+    border:1px solid gainsboro;
+
+}
+
+.register_info_input{
+    width:300px;
+    height:45px;
+    margin-top: 50px;
+    padding-left:20px;
+    border-radius: 5px 15px 15px 5px;
+    border:1px solid white;
+    background-color: white;
+    color:gainsboro;
+}
+
+.back{
+    width:300px;
+    height:45px;
+    margin-top: 20px;
+    padding-left:20px;
+    border-radius: 5px 15px 15px 5px;
+    border:1px solid white;
+    color:gainsboro;
+
+}
